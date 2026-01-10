@@ -87,10 +87,19 @@
 }
 
 @layer base {
+
   body {
     @apply bg-background text-foreground antialiased;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
+    html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+   * {
+    box-sizing: border-box;
+  }
+
   
   h1 {
     @apply text-xl font-bold tracking-tight;
@@ -135,6 +144,16 @@
 
 /* Animation Classes */
 @layer utilities {
+   /* Prevent text overflow */
+  .break-words {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+    img, svg, video {
+    max-width: 100%;
+    height: auto;
+  }
+
   /* Fade In Up Animation */
   .animate-fade-up {
     animation: fadeUp 0.8s ease-out forwards;
