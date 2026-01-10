@@ -197,9 +197,9 @@ const Contact = () => {
                     : 'bg-red-500/10 border border-red-500/20 text-red-600'
                 }`}>
                   {status.type === 'success' ? (
-                    <CheckCircle className="h-5 w-5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 flex-shrink-0" />
                   ) : (
-                    <AlertCircle className="h-5 w-5 shrink-0" />
+                    <AlertCircle className="h-5 w-5 flex-shrink-0" />
                   )}
                   <p>{status.message}</p>
                 </div>
@@ -308,15 +308,15 @@ const Contact = () => {
                 <h4 className="font-bold mb-3">What happens next?</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                     <span>I'll review your message within 24 hours</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                     <span>We'll schedule a call to discuss details</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                     <span>I'll provide a proposal with timeline & budget</span>
                   </li>
                 </ul>

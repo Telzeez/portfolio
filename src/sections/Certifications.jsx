@@ -72,7 +72,7 @@ const Certifications = () => {
                   </h3>
                   <p className="text-primary font-medium">{cert.issuer}</p>
                 </div>
-                <CheckCircle className="h-5 w-5 text-green-500 shrink-0" />
+                <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
               </div>
 
               {/* Certificate Details */}

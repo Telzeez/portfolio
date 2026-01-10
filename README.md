@@ -1,16 +1,112 @@
-# React + Vite
+# Abdlazeez Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website built with React, Tailwind CSS v4, and featuring glass morphism design with smooth animations.
 
-Currently, two official plugins are available:
+![Portfolio Preview](public/heroimage/Heroimage.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **Modern Design**: Glass morphism effects with backdrop blur
+- **Dark/Light Mode**: Theme switching with system preference detection
+- **Fully Responsive**: Works on all devices from mobile to desktop
+- **Smooth Animations**: Entrance and hover animations using CSS
+- **Interactive Components**: 
+  - Animated tech stack with infinite scroll
+  - Floating profile image
+  - Glass-effect navigation
+  - Contact and download buttons
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📁 Project Structure
 
-## Expanding the ESLint configuration
+```
++---public
+|   |   Heroimage.png
+|
+\---src
+    |   App.jsx
+    |   index.css
+    |   main.jsx
+    |
+    +---assets
+    +---hooks
+    |       useDarkMode.js
+    |       useScrollAnimation.js
+    |
+    +---layout
+    |       Footer.jsx
+    |       Navbar.jsx
+    |
+    \---sections
+            About.jsx
+            Certifications.jsx
+            Contact.jsx
+            Hero.jsx
+            Projects.jsx
+            Testimonials.jsx
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+- **React 18** - Frontend library
+- **Tailwind CSS v4** - Utility-first CSS framework
+- **Lucide React** - Icon library
+- **CSS Animations** - Custom keyframe animations
+
+## 🎨 Design Features
+
+### Color Theme
+- Primary: Blue gradient (`#3b82f6` to `#60a5fa`)
+- Dark mode optimized
+- Glass effect backgrounds
+- Smooth theme transitions
+
+### Animations
+- Entrance animations (fade-up, fade-down, scale-in)
+- Floating profile image
+- Infinite tech stack scroll
+- Button hover effects
+- Smooth page transitions
+
+## ⚙️ Installation
+
+1. **Clone the repository**
+```bash
+git clone <https://github.com/Telzeez/portfolio.git>
+cd portfolio-website
+```
+
+2. **Install dependencies**
+```bash
+npm install
+```
+
+4. **Start the development server**
+```bash
+npm run dev
+```
+
+
+## 📄 License
+
+MIT License - feel free to use this template for your portfolio.
+
+## 👤 Author
+
+**Abdlazeez**
+- Portfolio: [Your Portfolio URL]
+- GitHub: https://github.com/Telzeez/portfolio
+- LinkedIn: www.linkedin.com/in/abdlazeezolasunkanmi
+
+---
+
+## 🎉 Quick Start
+
+```bash
+# Clone and run
+git clone https://github.com/Telzeez/portfolio
+cd portfolio-website
+npm install
+npm run dev
+
+---
+
