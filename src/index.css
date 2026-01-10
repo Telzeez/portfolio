@@ -87,24 +87,24 @@
 }
 
 @layer base {
-
   body {
     @apply bg-background text-foreground antialiased;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-    html, body {
+  
+  html, body {
     overflow-x: hidden;
     max-width: 100%;
   }
-   * {
+  
+  * {
     box-sizing: border-box;
   }
-
   
   h1 {
     @apply text-xl font-bold tracking-tight;
   }
-}
+} /* ← THIS WAS MISSING */
 
 @layer components {
   /* Glass effect container */
@@ -142,23 +142,43 @@
   }
 }
 
-/* Animation Classes */
 @layer utilities {
-   /* Prevent text overflow */
+  /* Prevent text overflow */
   .break-words {
     overflow-wrap: break-word;
     word-break: break-word;
   }
-    img, svg, video {
+  
+  img, svg, video {
     max-width: 100%;
     height: auto;
   }
 
-  /* Fade In Up Animation */
+  /* Optimized Animation Durations - FIXED VERSION */
+  
+  /* Entrance Animations - Much Faster */
   .animate-fade-up {
-    animation: fadeUp 0.8s ease-out forwards;
+    animation: fadeUp 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
+  }
+  
+  .animate-fade-down {
+    animation: fadeDown 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  
+  .animate-fade-left {
+    animation: fadeLeft 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  
+  .animate-fade-right {
+    animation: fadeRight 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateX(-15px);
   }
   
   @keyframes fadeUp {
@@ -168,25 +188,11 @@
     }
   }
   
-  /* Fade In Down Animation */
-  .animate-fade-down {
-    animation: fadeDown 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  
   @keyframes fadeDown {
     to {
       opacity: 1;
       transform: translateY(0);
     }
-  }
-  
-  /* Fade In Left Animation */
-  .animate-fade-left {
-    animation: fadeLeft 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateX(20px);
   }
   
   @keyframes fadeLeft {
@@ -196,13 +202,6 @@
     }
   }
   
-  /* Fade In Right Animation */
-  .animate-fade-right {
-    animation: fadeRight 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  
   @keyframes fadeRight {
     to {
       opacity: 1;
@@ -210,11 +209,11 @@
     }
   }
   
-  /* Scale In Animation */
+  /* Scale In - Faster */
   .animate-scale-in {
-    animation: scaleIn 0.6s ease-out forwards;
+    animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   
   @keyframes scaleIn {
@@ -224,9 +223,9 @@
     }
   }
   
-  /* Float Animation (for image/profile) */
+  /* Float Animation - Faster and Subtler */
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 3.5s ease-in-out infinite;
   }
   
   @keyframes float {
@@ -234,13 +233,13 @@
       transform: translateY(0px);
     }
     50% {
-      transform: translateY(-15px);
+      transform: translateY(-8px);
     }
   }
   
-  /* Pulse Animation */
+  /* Pulse Animation - Faster */
   .animate-pulse-slow {
-    animation: pulseSlow 3s ease-in-out infinite;
+    animation: pulseSlow 1.5s ease-in-out infinite;
   }
   
   @keyframes pulseSlow {
@@ -248,16 +247,16 @@
       opacity: 1;
     }
     50% {
-      opacity: 0.7;
+      opacity: 0.85;
     }
   }
   
-  /* Typing Animation for text */
+  /* Typing Animation - Faster */
   .animate-typing {
     overflow: hidden;
     border-right: 2px solid;
     white-space: nowrap;
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
   }
   
   @keyframes typing {
@@ -270,20 +269,9 @@
     50% { border-color: hsl(var(--primary)) }
   }
   
-  /* Animation Delays */
-  .delay-100 { animation-delay: 100ms; }
-  .delay-200 { animation-delay: 200ms; }
-  .delay-300 { animation-delay: 300ms; }
-  .delay-400 { animation-delay: 400ms; }
-  .delay-500 { animation-delay: 500ms; }
-  .delay-600 { animation-delay: 600ms; }
-  .delay-700 { animation-delay: 700ms; }
-  .delay-800 { animation-delay: 800ms; }
-  .delay-900 { animation-delay: 900ms; }
-  .delay-1000 { animation-delay: 1000ms; }
-
+  /* Infinite Scroll Animations - Faster */
   .animate-scroll-left {
-    animation: scrollLeft 20s linear infinite;
+    animation: scrollLeft 12s linear infinite;
     width: max-content;
   }
   
@@ -296,9 +284,8 @@
     }
   }
   
-  /* Infinite Scroll Animation - Right */
   .animate-scroll-right {
-    animation: scrollRight 15s linear infinite;
+    animation: scrollRight 10s linear infinite;
     width: max-content;
   }
   
@@ -311,12 +298,9 @@
     }
   }
   
-  /* Pause animation on hover */
-  .pause-on-hover:hover {
-    animation-play-state: paused;
-  }
+  /* Skill Fill Animation */
   .animate-skill-fill {
-    animation: skillFill 1.5s ease-out forwards;
+    animation: skillFill 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     transform-origin: left;
   }
   
@@ -328,7 +312,110 @@
       transform: scaleX(1);
     }
   }
-  /* Staggered Animation Delays */
+  
+  /* Bounce In - Faster */
+  .animate-bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    opacity: 0;
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Rotate In - Faster */
+  .animate-rotate-in {
+    animation: rotateIn 0.7s ease-out forwards;
+    opacity: 0;
+    transform: rotate(-5deg);
+  }
+  
+  @keyframes rotateIn {
+    to {
+      opacity: 1;
+      transform: rotate(0);
+    }
+  }
+  
+  /* Slide Animations - Faster */
+  .animate-slide-in-left {
+    animation: slideInLeft 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  
+  @keyframes slideInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Flip In - Faster */
+  .animate-flip-in {
+    animation: flipIn 0.6s ease-out forwards;
+    opacity: 0;
+    transform: perspective(400px) rotateY(60deg);
+  }
+  
+  @keyframes flipIn {
+    to {
+      opacity: 1;
+      transform: perspective(400px) rotateY(0);
+    }
+  }
+  
+  /* Spin Slow */
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Animation Delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-150 { animation-delay: 150ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-250 { animation-delay: 250ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-350 { animation-delay: 350ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-450 { animation-delay: 450ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+  
+  /* Staggered delays */
   .stagger-1 { animation-delay: 100ms; }
   .stagger-2 { animation-delay: 200ms; }
   .stagger-3 { animation-delay: 300ms; }
@@ -340,150 +427,55 @@
   .stagger-9 { animation-delay: 900ms; }
   .stagger-10 { animation-delay: 1000ms; }
   
-  /* Scroll-triggered animations */
-  .scroll-animate {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  /* Pause animation on hover */
+  .pause-on-hover:hover {
+    animation-play-state: paused;
   }
   
-  .scroll-animate-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Bounce In */
-  .animate-bounce-in {
-    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-    opacity: 0;
-  }
-  
-  @keyframes bounceIn {
-    0% {
-      opacity: 0;
-      transform: scale(0.3);
+  /* Mobile Performance Optimizations */
+  @media (max-width: 768px) {
+    .animate-fade-up,
+    .animate-fade-down,
+    .animate-fade-left,
+    .animate-fade-right {
+      animation-duration: 0.35s;
     }
-    50% {
+    
+    .animate-float {
+      animation: none;
+    }
+    
+    .animate-scroll-left {
+      animation-duration: 15s;
+    }
+    
+    .animate-scroll-right {
+      animation-duration: 13s;
+    }
+  }
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-fade-down,
+    .animate-fade-left,
+    .animate-fade-right,
+    .animate-scale-in,
+    .animate-float,
+    .animate-pulse-slow,
+    .animate-typing,
+    .animate-scroll-left,
+    .animate-scroll-right,
+    .animate-skill-fill,
+    .animate-bounce-in,
+    .animate-rotate-in,
+    .animate-slide-in-left,
+    .animate-slide-in-right,
+    .animate-flip-in,
+    .animate-spin-slow {
+      animation: none !important;
       opacity: 1;
-      transform: scale(1.05);
-    }
-    70% {
-      transform: scale(0.9);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
+      transform: none !important;
     }
   }
-  
-  /* Rotate In */
-  .animate-rotate-in {
-    animation: rotateIn 1s ease-out forwards;
-    opacity: 0;
-    transform: rotate(-10deg);
-  }
-  
-  @keyframes rotateIn {
-    to {
-      opacity: 1;
-      transform: rotate(0);
-    }
-  }
-  
-  /* Slide In Left */
-  .animate-slide-in-left {
-    animation: slideInLeft 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  
-  @keyframes slideInLeft {
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  /* Slide In Right */
-  .animate-slide-in-right {
-    animation: slideInRight 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  
-  @keyframes slideInRight {
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  /* Flip In */
-  .animate-flip-in {
-    animation: flipIn 0.8s ease-out forwards;
-    opacity: 0;
-    transform: perspective(400px) rotateY(90deg);
-  }
-  
-  @keyframes flipIn {
-    to {
-      opacity: 1;
-      transform: perspective(400px) rotateY(0);
-    }
-  }
-  
-  /* Gradient Border Animation */
-  .animate-gradient-border {
-    position: relative;
-    background: linear-gradient(var(--background), var(--background)) padding-box,
-                linear-gradient(45deg, hsl(var(--primary)), hsl(var(--primary-dark))) border-box;
-    border: 2px solid transparent;
-    animation: borderRotate 3s linear infinite;
-  }
-  
-  @keyframes borderRotate {
-    from {
-      background: linear-gradient(var(--background), var(--background)) padding-box,
-                  linear-gradient(45deg, hsl(var(--primary)), hsl(var(--primary-dark))) border-box;
-    }
-    to {
-      background: linear-gradient(var(--background), var(--background)) padding-box,
-                  linear-gradient(405deg, hsl(var(--primary)), hsl(var(--primary-dark))) border-box;
-    }
-  }
-  
-  /* Shimmer Effect */
-  .animate-shimmer {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.1),
-      transparent
-    );
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite;
-  }
-  
-  @keyframes shimmer {
-    0% {
-      background-position: -200% 0;
-    }
-    100% {
-      background-position: 200% 0;
-    }
-  }
- /* Slow Spin Animation */
-  .animate-spin-slow {
-    animation: spin 3s linear infinite;
-  }
-  
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
 }
