@@ -8,7 +8,7 @@ const Certifications = () => {
       issuer: 'Freecodecamp.org',
       date: 'Dec 2025',
      
-      link: 'https:/freecodecamp.org/certification/telzeez/responsive-web-design-v9',
+      link: 'https://freecodecamp.org/certification/telzeez/responsive-web-design-v9',
       icon: 'aws',
       skills: ['HTML', 'CSS']
     },
@@ -17,7 +17,7 @@ const Certifications = () => {
       issuer: 'FreeCodeCamp',
       date: 'Jan 2026',
       
-      link: 'https:/freecodecamp.org/certification/telzeez/javascript-v9',
+      link: 'https://freecodecamp.org/certification/telzeez/javascript-v9',
       icon: 'meta',
       skills: ['JavaScript']
     },
