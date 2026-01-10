@@ -79,9 +79,11 @@ const Navbar = () => {
               />
               <div className="absolute -inset-1 rounded-full bg-primary/5 blur-md group-hover:bg-primary/10 transition-all duration-300"></div>
             </div>
-            <div className="hidden md:flex flex-col items-start">
-              <span className="text-lg font-bold text-foreground">Abdlazeez</span>
-              <span className="text-xs text-muted-foreground">Developer</span>
+            <div className="hidden md:flex flex-col items-start group">
+              <span className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                  Telz<span className="text-primary">ee</span>z<span className="text-primary">.</span>
+                </span>
+
             </div>
           </button>
 
