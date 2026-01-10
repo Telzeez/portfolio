@@ -76,7 +76,7 @@ const HeroSection = () => {
             <p className={`text-lg text-muted-foreground leading-relaxed max-w-2xl scroll-animate ${
               contentVisible ? 'scroll-animate-visible stagger-4' : ''
             }`}>
-              I'm a passionate frontend developer specializing in React, Next.js, and modern 
+              I'm a passionate Full stack developer specializing in React, Next.js, and modern 
               web technologies. I create beautiful, responsive, and accessible web applications 
               with exceptional user experiences.
             </p>

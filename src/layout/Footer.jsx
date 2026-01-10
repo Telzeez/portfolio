@@ -31,7 +31,7 @@ const Footer = () => {
 
   const services = [
     'Web Development',
-    'UI/UX Design',
+   
     'React Applications',
     'Consulting',
   ];

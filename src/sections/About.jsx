@@ -22,7 +22,7 @@ const AboutSection = () => {
   const experiences = [
     {
       year: '2024 - Present',
-      role: 'Frontend Developer',
+      role: 'Full stack developer',
       company: 'FreecodeCamp',
       description: 'Full stack development'
     },

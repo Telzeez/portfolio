@@ -328,7 +328,7 @@ const Contact = () => {
                   {[
                     'Web Development',
                     'Mobile Apps',
-                    'UI/UX Design',
+                    
                     'Consultation',
                     'Full-time Role',
                     'Contract Work'
