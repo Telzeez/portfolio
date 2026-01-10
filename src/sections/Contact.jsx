@@ -132,15 +132,25 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="flex items-start gap-4 p-4 rounded-xl border border-border hover:border-primary/30 hover:bg-secondary/30 transition-all duration-300 group"
                   >
-                    <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                    {/* Icon Container - Fixed size */}
+                    <div className="flex-shrink-0 p-3 rounded-lg bg-primary/10 text-primary">
                       <item.icon className="h-5 w-5" />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">
+                    
+                    {/* Text Container - Allow text wrapping */}
+                    <div className="flex-1 min-w-0"> {/* min-w-0 allows text to wrap */}
+                      <h4 className="font-bold text-base mb-1 group-hover:text-primary transition-colors truncate">
                         {item.title}
                       </h4>
-                      <p className="text-primary font-medium mb-1">{item.details}</p>
-                      <p className="text-sm text-muted-foreground">{item.subtitle}</p>
+                      {/* Email with responsive text size */}
+                      <p className={`font-medium mb-1 text-primary group-hover:text-primary/90 transition-colors ${
+                        item.title === 'Email' ? 'text-sm break-all' : 'text-base'
+                      }`}>
+                        {item.details}
+                      </p>
+                      <p className="text-sm text-muted-foreground truncate">
+                        {item.subtitle}
+                      </p>
                     </div>
                   </a>
                 ))}
@@ -163,8 +173,8 @@ const Contact = () => {
                     className={`flex items-center gap-2 px-4 py-3 rounded-lg border border-border bg-background hover:scale-105 transition-all duration-300 ${social.color}`}
                     aria-label={`Follow on ${social.platform}`}
                   >
-                    <social.icon className="h-5 w-5" />
-                    <span className="font-medium">{social.platform}</span>
+                    <social.icon className="h-5 w-5 flex-shrink-0" />
+                    <span className="font-medium truncate">{social.platform}</span>
                   </a>
                 ))}
               </div>
@@ -173,10 +183,10 @@ const Contact = () => {
             {/* Response Time */}
             <div className="glass-panel p-6 rounded-2xl animate-fade-up delay-300">
               <div className="flex items-center gap-3">
-                <CheckCircle className="h-5 w-5 text-green-500" />
-                <div>
-                  <h4 className="font-bold">Quick Response</h4>
-                  <p className="text-sm text-muted-foreground">
+                <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
+                <div className="min-w-0"> {/* Prevent overflow */}
+                  <h4 className="font-bold truncate">Quick Response</h4>
+                  <p className="text-sm text-muted-foreground truncate">
                     I typically respond within 24 hours
                   </p>
                 </div>
@@ -201,15 +211,15 @@ const Contact = () => {
                   ) : (
                     <AlertCircle className="h-5 w-5 flex-shrink-0" />
                   )}
-                  <p>{status.message}</p>
+                  <p className="break-words">{status.message}</p>
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Name Field */}
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <div className="min-w-0"> {/* Prevent overflow */}
+                    <label htmlFor="name" className="block text-sm font-medium mb-2 truncate">
                       Your Name *
                     </label>
                     <input
@@ -225,8 +235,8 @@ const Contact = () => {
                   </div>
 
                   {/* Email Field */}
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <div className="min-w-0">
+                    <label htmlFor="email" className="block text-sm font-medium mb-2 truncate">
                       Email Address *
                     </label>
                     <input
@@ -243,8 +253,8 @@ const Contact = () => {
                 </div>
 
                 {/* Subject Field */}
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                <div className="min-w-0">
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2 truncate">
                     Subject *
                   </label>
                   <input
@@ -260,8 +270,8 @@ const Contact = () => {
                 </div>
 
                 {/* Message Field */}
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <div className="min-w-0">
+                  <label htmlFor="message" className="block text-sm font-medium mb-2 truncate">
                     Your Message *
                   </label>
                   <textarea
@@ -284,19 +294,19 @@ const Contact = () => {
                 >
                   {loading ? (
                     <>
-                      <Loader2 className="h-5 w-5 animate-spin" />
-                      <span>Sending...</span>
+                      <Loader2 className="h-5 w-5 animate-spin flex-shrink-0" />
+                      <span className="truncate">Sending...</span>
                     </>
                   ) : (
                     <>
-                      <Send className="h-5 w-5" />
-                      <span>Send Message</span>
+                      <Send className="h-5 w-5 flex-shrink-0" />
+                      <span className="truncate">Send Message</span>
                     </>
                   )}
                 </button>
 
                 {/* Form Note */}
-                <p className="text-sm text-muted-foreground text-center">
+                <p className="text-sm text-muted-foreground text-center break-words">
                   By submitting this form, you agree to our privacy policy. All fields are required.
                 </p>
               </form>
@@ -305,37 +315,36 @@ const Contact = () => {
             {/* Additional Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
               <div className="glass-panel p-6 rounded-2xl animate-fade-up delay-500">
-                <h4 className="font-bold mb-3">What happens next?</h4>
+                <h4 className="font-bold mb-3 truncate">What happens next?</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span>I'll review your message within 24 hours</span>
+                    <span className="break-words">I'll review your message within 24 hours</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span>We'll schedule a call to discuss details</span>
+                    <span className="break-words">We'll schedule a call to discuss details</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span>I'll provide a proposal with timeline & budget</span>
+                    <span className="break-words">I'll provide a proposal with timeline & budget</span>
                   </li>
                 </ul>
               </div>
 
               <div className="glass-panel p-6 rounded-2xl animate-fade-up delay-600">
-                <h4 className="font-bold mb-3">Looking for?</h4>
+                <h4 className="font-bold mb-3 truncate">Looking for?</h4>
                 <div className="flex flex-wrap gap-2">
                   {[
                     'Web Development',
                     'Mobile Apps',
-                    
                     'Consultation',
                     'Full-time Role',
                     'Contract Work'
                   ].map((item, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20"
+                      className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20 truncate"
                     >
                       {item}
                     </span>
@@ -346,23 +355,23 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup (Optional) */}
+        {/* Newsletter Signup */}
         <div className="mt-20 text-center animate-fade-up delay-700">
-          <div className="inline-flex flex-col items-center glass-container p-8 rounded-2xl max-w-2xl mx-auto">
-            <Mail className="h-10 w-10 text-primary mb-4" />
-            <h3 className="text-2xl font-bold mb-3">Stay Updated</h3>
-            <p className="text-muted-foreground mb-6 max-w-md">
+          <div className="inline-flex flex-col items-center glass-container p-8 rounded-2xl max-w-2xl mx-auto w-full">
+            <Mail className="h-10 w-10 text-primary mb-4 flex-shrink-0" />
+            <h3 className="text-2xl font-bold mb-3 truncate">Stay Updated</h3>
+            <p className="text-muted-foreground mb-6 max-w-md mx-auto break-words">
               Subscribe to my newsletter for development tips, project updates, and career insights.
             </p>
-            <form className="w-full max-w-md flex gap-3">
+            <form className="w-full max-w-md mx-auto flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-1 px-4 py-3 rounded-lg border border-border bg-background focus:border-primary outline-none"
+                className="flex-1 px-4 py-3 rounded-lg border border-border bg-background focus:border-primary outline-none min-w-0"
               />
               <button
                 type="submit"
-                className="btn-primary whitespace-nowrap"
+                className="btn-primary whitespace-nowrap flex-shrink-0"
               >
                 Subscribe
               </button>
