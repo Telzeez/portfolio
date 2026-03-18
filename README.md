@@ -93,7 +93,7 @@ MIT License - feel free to use this template for your portfolio.
 ## 👤 Author
 
 **Abdlazeez**
-- Portfolio: [Your Portfolio URL]
+- Portfolio: https://portfolio-6wnbijcth-abdlazeez-s-projects.vercel.app/
 - GitHub: https://github.com/Telzeez/portfolio
 - LinkedIn: www.linkedin.com/in/abdlazeezolasunkanmi
 
