@@ -1,114 +1,155 @@
-import React, { useState } from 'react';
-import { 
-  ExternalLink, 
-  Github, 
-  Code, 
-  Eye, 
-  Filter, 
-  Star, 
-  Users, 
+import React, { useState } from "react";
+import {
+  ExternalLink,
+  Github,
+  Code,
+  Eye,
+  Filter,
+  Star,
+  Users,
   Calendar,
   ArrowUpRight,
-  Zap
-} from 'lucide-react';
+  Zap,
+} from "lucide-react";
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
-  
+  const [activeFilter, setActiveFilter] = useState("all");
+
   const projects = [
     {
-      id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online shopping platform with cart, payment integration, and admin dashboard.',
-      category: 'fullstack',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      image: '/projects/ecommerce.jpg',
-      github: 'https://github.com/Telzeez/ecommerce',
-      live: 'https://ecommerce-demo.com',
+      id: 7,
+      title: "Audira Landing Page",
+      description:
+        "A modern, responsive landing page with engaging UI and smooth performance.",
+      category: "frontend",
+      tags: ["React", "Tailwind CSS", "Vite"],
+      image: "/projects/audira.jpg",
+      github: "https://github.com/Telzeez/audira-landing-page",
+      live: "https://audira-landing-page.vercel.app/",
       featured: true,
-      year: '2025',
-      highlights: ['Payment Processing', 'Real-time Updates', 'Admin Dashboard']
+      year: "2026",
+      highlights: ["Responsive UI", "Modern Design", "Fast Load Times"],
+    },
+    {
+      id: 1,
+      title: "E-Commerce Platform",
+      description:
+        "A full-featured online shopping platform with cart, payment integration, and admin dashboard.",
+      category: "fullstack",
+      tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      image: "/projects/ecommerce.jpg",
+      github: "https://github.com/Telzeez/ecommerce",
+      live: "https://ecommerce-demo.com",
+      featured: true,
+      year: "2025",
+      highlights: [
+        "Payment Processing",
+        "Real-time Updates",
+        "Admin Dashboard",
+      ],
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'Collaborative project management tool with drag-drop interface and team features.',
-      category: 'frontend',
-      tags: ['React', 'TypeScript', 'Tailwind', 'DnD'],
-      image: '/projects/taskapp.jpg',
-      github: 'https://github.com/Telzeez/task-app',
-      live: 'https://taskapp-demo.com',
+      title: "Task Management App",
+      description:
+        "Collaborative project management tool with drag-drop interface and team features.",
+      category: "frontend",
+      tags: ["React", "TypeScript", "Tailwind", "DnD"],
+      image: "/projects/taskapp.jpg",
+      github: "https://github.com/Telzeez/task-app",
+      live: "https://taskapp-demo.com",
       featured: true,
-      year: '2025',
-      highlights: ['Drag & Drop', 'Team Collaboration', 'Real-time Sync']
+      year: "2025",
+      highlights: ["Drag & Drop", "Team Collaboration", "Real-time Sync"],
     },
     {
       id: 3,
-      title: 'Portfolio Website',
-      description: 'Modern portfolio website with animations, dark mode, and responsive design.',
-      category: 'frontend',
-      tags: ['React', 'Tailwind', 'Framer Motion', 'GSAP'],
-      image: '/projects/portfolio.jpg',
-      github: 'https://github.com/Telzeez/portfolio',
-      live: 'https://abdlazeezolasunkanmi@gmail.com',
+      title: "Portfolio Website",
+      description:
+        "Modern portfolio website with animations, dark mode, and responsive design.",
+      category: "frontend",
+      tags: ["React", "Tailwind", "Framer Motion", "GSAP"],
+      image: "/projects/portfolio.jpg",
+      github: "https://github.com/Telzeez/portfolio",
+      live: "https://abdlazeezolasunkanmi@gmail.com",
       featured: false,
-      year: '2025',
-      highlights: ['Animations', 'Dark Mode', 'Responsive']
+      year: "2025",
+      highlights: ["Animations", "Dark Mode", "Responsive"],
     },
     {
       id: 4,
-      title: 'Weather Dashboard',
-      description: 'Real-time weather application with forecasts, maps, and location-based services.',
-      category: 'frontend',
-      tags: ['Next.js', 'API', 'Chart.js', 'Geolocation'],
-      image: '/projects/weather.jpg',
-      github: 'https://github.com/Telzeez/weather-app',
-      live: 'https://weather-demo.com',
+      title: "Weather Dashboard",
+      description:
+        "Real-time weather application with forecasts, maps, and location-based services.",
+      category: "frontend",
+      tags: ["Next.js", "API", "Chart.js", "Geolocation"],
+      image: "/projects/weather.jpg",
+      github: "https://github.com/Telzeez/weather-app",
+      live: "https://weather-demo.com",
       featured: false,
-      year: '2025',
-      highlights: ['Real-time Data', 'Interactive Maps', 'Forecasts']
+      year: "2025",
+      highlights: ["Real-time Data", "Interactive Maps", "Forecasts"],
     },
     {
       id: 5,
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for social media metrics with data visualization and reports.',
-      category: 'fullstack',
-      tags: ['React', 'Express', 'PostgreSQL', 'D3.js'],
-      image: '/projects/dashboard.jpg',
-      github: 'https://github.com/Telzeez/social-dashboard',
-      live: 'https://dashboard-demo.com',
+      title: "Social Media Dashboard",
+      description:
+        "Analytics dashboard for social media metrics with data visualization and reports.",
+      category: "fullstack",
+      tags: ["React", "Express", "PostgreSQL", "D3.js"],
+      image: "/projects/dashboard.jpg",
+      github: "https://github.com/Telzeez/social-dashboard",
+      live: "https://dashboard-demo.com",
       featured: true,
-      year: '2026',
-      highlights: ['Data Visualization', 'Analytics', 'Export Reports']
+      year: "2026",
+      highlights: ["Data Visualization", "Analytics", "Export Reports"],
     },
     {
       id: 6,
-      title: 'AI Content Generator',
-      description: 'AI-powered content creation tool with text generation and image synthesis.',
-      category: 'ai',
-      tags: ['Python', 'FastAPI', 'React', 'OpenAI'],
-      image: '/projects/ai-tool.jpg',
-      github: 'https://github.com/username/ai-generator',
-      live: 'https://ai-demo.com',
+      title: "AI Content Generator",
+      description:
+        "AI-powered content creation tool with text generation and image synthesis.",
+      category: "ai",
+      tags: ["Python", "FastAPI", "React", "OpenAI"],
+      image: "/projects/ai-tool.jpg",
+      github: "https://github.com/username/ai-generator",
+      live: "https://ai-demo.com",
       featured: false,
-      year: '2026',
-      highlights: ['AI Integration', 'Content Generation', 'Custom Models']
+      year: "2026",
+      highlights: ["AI Integration", "Content Generation", "Custom Models"],
     },
   ];
 
   const filters = [
-    { id: 'all', label: 'All Projects', count: projects.length },
-    { id: 'featured', label: 'Featured', count: projects.filter(p => p.featured).length },
-    { id: 'frontend', label: 'Frontend', count: projects.filter(p => p.category === 'frontend').length },
-    { id: 'fullstack', label: 'Full Stack', count: projects.filter(p => p.category === 'fullstack').length },
-    { id: 'ai', label: 'AI/ML', count: projects.filter(p => p.category === 'ai').length },
+    { id: "all", label: "All Projects", count: projects.length },
+    {
+      id: "featured",
+      label: "Featured",
+      count: projects.filter((p) => p.featured).length,
+    },
+    {
+      id: "frontend",
+      label: "Frontend",
+      count: projects.filter((p) => p.category === "frontend").length,
+    },
+    {
+      id: "fullstack",
+      label: "Full Stack",
+      count: projects.filter((p) => p.category === "fullstack").length,
+    },
+    {
+      id: "ai",
+      label: "AI/ML",
+      count: projects.filter((p) => p.category === "ai").length,
+    },
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : activeFilter === 'featured'
-    ? projects.filter(p => p.featured)
-    : projects.filter(p => p.category === activeFilter);
+  const filteredProjects =
+    activeFilter === "all"
+      ? projects
+      : activeFilter === "featured"
+        ? projects.filter((p) => p.featured)
+        : projects.filter((p) => p.category === activeFilter);
 
   return (
     <section id="projects" className="py-20 px-4 md:px-8 bg-background">
@@ -123,7 +164,8 @@ const Projects = () => {
             Featured <span className="text-primary">Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            A showcase of my recent work, highlighting technical challenges and creative solutions
+            A showcase of my recent work, highlighting technical challenges and
+            creative solutions
           </p>
         </div>
 
@@ -135,17 +177,19 @@ const Projects = () => {
               onClick={() => setActiveFilter(filter.id)}
               className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${
                 activeFilter === filter.id
-                  ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20'
-                  : 'border-border bg-background text-foreground hover:border-primary/50 hover:bg-secondary'
+                  ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20"
+                  : "border-border bg-background text-foreground hover:border-primary/50 hover:bg-secondary"
               }`}
             >
               <Filter className="h-3 w-3" />
               <span className="font-medium">{filter.label}</span>
-              <span className={`text-xs px-2 py-0.5 rounded-full ${
-                activeFilter === filter.id
-                  ? 'bg-primary-foreground/20 text-primary-foreground'
-                  : 'bg-secondary text-muted-foreground'
-              }`}>
+              <span
+                className={`text-xs px-2 py-0.5 rounded-full ${
+                  activeFilter === filter.id
+                    ? "bg-primary-foreground/20 text-primary-foreground"
+                    : "bg-secondary text-muted-foreground"
+                }`}
+              >
                 {filter.count}
               </span>
             </button>
@@ -162,25 +206,41 @@ const Projects = () => {
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <Code className="h-12 w-12 text-primary/30 mx-auto mb-2" />
-                    <div className="text-primary/50 font-bold">{project.title}</div>
-                    <div className="text-xs text-muted-foreground">Project Preview</div>
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <Code className="h-12 w-12 text-primary/30 mx-auto mb-2" />
+                      <div className="text-primary/50 font-bold">
+                        {project.title}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Project Preview
+                      </div>
+                    </div>
                   </div>
-                </div>
+                )}
                 {project.featured && (
                   <div className="absolute top-4 left-4">
                     <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30">
                       <Star className="h-3 w-3 text-primary" />
-                      <span className="text-xs font-bold text-primary">Featured</span>
+                      <span className="text-xs font-bold text-primary">
+                        Featured
+                      </span>
                     </div>
                   </div>
                 )}
                 <div className="absolute top-4 right-4">
                   <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm border border-border">
                     <Calendar className="h-3 w-3 text-muted-foreground" />
-                    <span className="text-xs font-medium text-muted-foreground">{project.year}</span>
+                    <span className="text-xs font-medium text-muted-foreground">
+                      {project.year}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -193,7 +253,7 @@ const Projects = () => {
                   </h3>
                   <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
-                
+
                 <p className="text-muted-foreground mb-6">
                   {project.description}
                 </p>
@@ -264,7 +324,7 @@ const Projects = () => {
                 Try selecting a different filter to see more projects
               </p>
               <button
-                onClick={() => setActiveFilter('all')}
+                onClick={() => setActiveFilter("all")}
                 className="btn-primary"
               >
                 Show All Projects
@@ -282,14 +342,11 @@ const Projects = () => {
                 <h3 className="text-2xl font-bold">Want to Collaborate?</h3>
               </div>
               <p className="text-muted-foreground">
-                Have an idea for a project? Let's work together to bring it to life with modern 
-                technologies and best practices.
+                Have an idea for a project? Let's work together to bring it to
+                life with modern technologies and best practices.
               </p>
             </div>
-            <a 
-              href="#contact"
-              className="btn-primary whitespace-nowrap"
-            >
+            <a href="#contact" className="btn-primary whitespace-nowrap">
               Start a Project
             </a>
           </div>
