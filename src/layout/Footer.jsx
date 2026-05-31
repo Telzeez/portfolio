@@ -157,14 +157,14 @@ const Footer = () => {
             <div className="space-y-6">
               <a
                 href="mailto:hello@abdlazeezolasunkanmi@gmail.com"
-                className="flex items-start gap-4 p-4 rounded-xl border border-border/30 hover:border-primary/30 hover:shadow-md transition-all duration-300 group"
+                className="flex items-start gap-4 p-4 rounded-xl border border-border/30 hover:border-primary/30 hover:shadow-md transition-all duration-300 group text-ellipsis overflow-hidden"
               >
                 <Mail className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <div>
+                <div className="flex flex-col">
                   <p className="text-sm text-muted-foreground mb-1">
                     Email me at
                   </p>
-                  <p className="text-foreground group-hover:text-primary transition-colors duration-300">
+                  <p className="text-foreground group-hover:text-primary transition-colors duration-300 ">
                     abdlazeezolasunkanmi@gmail.com
                   </p>
                 </div>
