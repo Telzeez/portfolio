@@ -24,7 +24,7 @@ const Projects = () => {
       category: "frontend",
       tags: ["React", "Tailwind CSS", "Vite"],
       image: "/projects/audira.jpg",
-      github: "https://github.com/Telzeez/audira-landing-page",
+      github: "https://github.com/Telzeez/audira_landing_page",
       live: "https://audira-landing-page.vercel.app/",
       featured: true,
       year: "2026",

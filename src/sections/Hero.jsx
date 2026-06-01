@@ -14,8 +14,7 @@ const HeroSection = () => {
   const [imageError, setImageError] = useState(false);
   const profileImage = "/Heroimage.png";
 
-  // Scroll animations for sections
-  const [heroRef, heroVisible] = useScrollAnimation({ threshold: 0.2 });
+  // Scroll animations for non-critical content
   const [contentRef, contentVisible] = useScrollAnimation({ threshold: 0.3 });
   const [imageRef, imageVisible] = useScrollAnimation({ threshold: 0.3 });
 
@@ -40,10 +39,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      ref={heroRef}
-      className={`min-h-screen flex items-center pt-16 pb-20 px-4 md:px-8 transition-all duration-1000 ${
-        heroVisible ? "opacity-100" : "opacity-0"
-      }`}
+      className="min-h-screen flex items-center pt-16 pb-20 px-4 md:px-8 transition-all duration-500 opacity-100"
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -216,6 +212,11 @@ const HeroSection = () => {
                     <img
                       src={profileImage}
                       alt="Abdlazeez"
+                      width="384"
+                      height="384"
+                      fetchpriority="high"
+                      loading="eager"
+                      decoding="async"
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       onError={() => setImageError(true)}
                     />
