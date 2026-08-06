@@ -10,7 +10,7 @@ import {
   ExternalLink,
   ArrowUp,
 } from "lucide-react";
-import new_logo from "@/assets/images/new_logo.png";
+import new_logo from "@/assets/images/new_logo.svg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

@@ -23,7 +23,7 @@ const Projects = () => {
         "A modern, responsive landing page with engaging UI and smooth performance.",
       category: "frontend",
       tags: ["React", "Tailwind CSS", "Vite"],
-      image: "/projects/audira.jpg",
+      image: "/projects/audira.webp",
       github: "https://github.com/Telzeez/audira_landing_page",
       live: "https://audira-landing-page.vercel.app/",
       featured: true,
@@ -37,9 +37,9 @@ const Projects = () => {
         "A full-featured online shopping platform with cart, payment integration, and admin dashboard.",
       category: "fullstack",
       tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "/projects/ecommerce.jpg",
-      github: "https://github.com/Telzeez/ecommerce",
-      live: "https://ecommerce-demo.com",
+      image: "/projects/ecommerce.webp",
+      github: "https://github.com/Telzeez/portfolio",
+      live: "https://husniyyah-luxe-design.vercel.app/",
       featured: true,
       year: "2025",
       highlights: [
@@ -69,10 +69,10 @@ const Projects = () => {
         "Modern portfolio website with animations, dark mode, and responsive design.",
       category: "frontend",
       tags: ["React", "Tailwind", "Framer Motion", "GSAP"],
-      image: "/projects/portfolio.jpg",
+      image: "/projects/portfolio.webp",
       github: "https://github.com/Telzeez/portfolio",
-      live: "https://abdlazeezolasunkanmi@gmail.com",
-      featured: false,
+      live: "https://portfolio-abdlazeez-s-projects.vercel.app/",
+      featured: true,
       year: "2025",
       highlights: ["Animations", "Dark Mode", "Responsive"],
     },
@@ -117,6 +117,20 @@ const Projects = () => {
       featured: false,
       year: "2026",
       highlights: ["AI Integration", "Content Generation", "Custom Models"],
+    },
+    {
+      id: 8,
+      title: "Blog Website",
+      description:
+        "A website that allow you to tell us the resources you have used to learn a skill for others to learn from.",
+         category: "fullstack",
+      tags: ["React", "RestAPI", "Mongo DB", "Express"],
+      image: "/projects/blogit.webp",
+      github: "https://github.com/Telzeez/blogit",
+      live: "https://blogitformejoor.vercel.app/",
+      featured: false,
+      year: "2026",
+      highlights: ["Full stack dev", "jwt Auth", "Databases"],
     },
   ];
 
@@ -205,26 +219,27 @@ const Projects = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <Code className="h-12 w-12 text-primary/30 mx-auto mb-2" />
-                      <div className="text-primary/50 font-bold">
-                        {project.title}
-                      </div>
-                      <div className="text-xs text-muted-foreground">
-                        Project Preview
-                      </div>
-                    </div>
-                  </div>
-                )}
+              <div className="relative h-48 overflow-hidden bg-linear-to-br from-primary/10 to-primary/5">
+  {project.image ? (
+    <img
+      src={project.image}
+      alt={project.title}
+      /* Added object-center and origin-center to guarantee perfect centering during the zoom scale */
+      className="w-full h-full object-cover object-center origin-center group-hover:scale-110 transition-transform duration-500"
+    />
+  ) : (
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="text-center">
+        <Code className="h-12 w-12 text-primary/30 mx-auto mb-2" />
+        <div className="text-primary/50 font-bold">
+          {project.title}
+        </div>
+        <div className="text-xs text-muted-foreground">
+          Project Preview
+        </div>
+      </div>
+    </div>
+  )}
                 {project.featured && (
                   <div className="absolute top-4 left-4">
                     <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30">

@@ -12,7 +12,7 @@ import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 const HeroSection = () => {
   const [imageError, setImageError] = useState(false);
-  const profileImage = "/Heroimage.png";
+  const profileImage = "/Heroimage.webp";
 
   // Scroll animations for non-critical content
   const [contentRef, contentVisible] = useScrollAnimation({ threshold: 0.3 });
@@ -214,7 +214,7 @@ const HeroSection = () => {
                       alt="Abdlazeez"
                       width="384"
                       height="384"
-                      fetchpriority="high"
+                      fetchPriority="high"
                       loading="eager"
                       decoding="async"
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"

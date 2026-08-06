@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website built with React, Tailwind CSS v4, and featuring glass morphism design with smooth animations.
 
-![Portfolio Preview](public/heroimage/Heroimage.png)
+![Portfolio Preview](public/heroimage/Heroimage.webp)
 
 ## 🚀 Features
 
@@ -20,7 +20,7 @@ A modern, responsive portfolio website built with React, Tailwind CSS v4, and fe
 
 ```
 +---public
-|   |   Heroimage.png
+|   |   Heroimage.webp
 |
 \---src
     |   App.jsx

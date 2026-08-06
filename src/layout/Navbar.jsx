@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Sun, Moon, Mail, Code, ChevronRight } from "lucide-react";
+import { Menu, X, Sun, Moon, Mail, ChevronRight } from "lucide-react";
 import useDarkMode from "@/hooks/useDarkMode";
-import new_logo from "@/assets/images/new_logo.png";
+import new_logo from "@/assets/images/new_logo.svg";
 
 const navItems = [
   { navName: "Home", href: "#home" },
   { navName: "About", href: "#about" },
   { navName: "Projects", href: "#projects" },
   { navName: "Certifications", href: "#certifications" },
-
   { navName: "Contact", href: "#contact" },
 ];
 
@@ -19,7 +18,6 @@ const Navbar = () => {
   const { theme, toggleTheme } = useDarkMode();
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -60,11 +58,13 @@ const Navbar = () => {
             : "py-4 bg-background/90 backdrop-blur-xl border-b border-border/20"
         }`}
       >
-        <div className="mx-auto px-6 max-w-7xl w-full flex items-center justify-between">
-          {/* Logo */}
+        {/* added 'relative' here so the absolute mobile name centers perfectly inside this container */}
+        <div className="mx-auto px-6 max-w-7xl w-full flex items-center justify-between relative">
+          
+          {/* Logo & Desktop Name Container */}
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group z-10"
             aria-label="Go to top"
           >
             <div className="relative">
@@ -79,7 +79,8 @@ const Navbar = () => {
               />
               <div className="absolute -inset-1 rounded-full bg-primary/5 blur-md group-hover:bg-primary/10 transition-all duration-300"></div>
             </div>
-            <div className="hidden md:flex flex-col items-start group">
+            {/* Desktop Only Name */}
+            <div className="hidden lg:flex flex-col items-start">
               <span className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                 Telz<span className="text-primary">ee</span>z
                 <span className="text-primary">.</span>
@@ -87,8 +88,16 @@ const Navbar = () => {
             </div>
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="flex items-center gap-4">
+          {/* NEW: Centered Mobile Name (visible on mobile/tablet, hidden on desktop layout) */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 pointer-events-none lg:hidden flex items-center">
+            <span className="text-2xl font-bold text-foreground">
+              Telz<span className="text-primary">ee</span>z
+              <span className="text-primary">.</span>
+            </span>
+          </div>
+
+          {/* Desktop Navigation & Actions */}
+          <div className="flex items-center gap-4 z-10">
             <nav className="hidden lg:flex items-center gap-6">
               {navItems.map((item) => (
                 <a
@@ -128,6 +137,19 @@ const Navbar = () => {
               </button>
             </div>
 
+            {/* Light/Dark mode toggle button for Mobile (Added so mobile users can switch themes too!) */}
+            <button
+              onClick={toggleTheme}
+              className="lg:hidden p-2 rounded-xl hover:bg-secondary/50 transition-all duration-300"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="h-5 w-5 text-primary" />
+              ) : (
+                <Moon className="h-5 w-5 text-muted-foreground" />
+              )}
+            </button>
+
             {/* Mobile menu button */}
             <button
               onClick={toggleMobileMenu}
@@ -143,7 +165,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Navigation Dropdown Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border/30 animate-fade-down">
             <div className="px-6 py-8">
@@ -173,38 +195,11 @@ const Navbar = () => {
                   <Mail className="h-4 w-4" />
                   Contact Me
                 </button>
-
-                <button
-                  onClick={() => {
-                    toggleTheme();
-                    closeMobileMenu();
-                  }}
-                  className="flex items-center justify-center w-full p-4 rounded-xl hover:bg-secondary/50 transition-all duration-300 border border-border/30"
-                >
-                  {theme === "dark" ? (
-                    <>
-                      <Sun className="h-5 w-5 text-primary mr-3" />
-                      <span className="text-muted-foreground font-medium">
-                        Light Mode
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <Moon className="h-5 w-5 text-muted-foreground mr-3" />
-                      <span className="text-muted-foreground font-medium">
-                        Dark Mode
-                      </span>
-                    </>
-                  )}
-                </button>
               </div>
             </div>
           </div>
         )}
       </header>
-
-      {/* Spacer */}
-      <div className="h-20"></div>
     </>
   );
 };
