@@ -160,7 +160,7 @@ const HeroSection = () => {
 
               <div className="relative overflow-hidden">
                 <div className="flex mb-3 animate-scroll-left">
-                  <div className="flex gap-2">
+  <div className="flex gap-2 w-max">
                     {techStack.map((tech, index) => (
                       <span
                         key={`first-${tech}-${index}`}
