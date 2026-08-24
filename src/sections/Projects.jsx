@@ -14,149 +14,169 @@ import {
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [showAll, setShowAll] = useState(false); // Controls "See More"
+const projects = [
+  {
+    id: 1, // was 7
+    title: "Audira Landing Page",
+    description:
+      "A modern, responsive landing page with engaging UI and smooth performance.",
+    category: "frontend",
+    tags: ["React", "Tailwind CSS", "Vite"],
+    image: "/projects/audira.webp",
+    github: "https://github.com/Telzeez/audira_landing_page",
+    live: "https://audira-landing-page.vercel.app/",
+    featured: true,
+    year: "2026",
+    highlights: ["Responsive UI", "Modern Design", "Fast Load Times"],
+  },
+  {
+    id: 2, // was 1
+    title: "E-Commerce Platform",
+    description:
+      "A full-featured online shopping platform with cart, payment integration, and admin dashboard.",
+    category: "fullstack",
+    tags: ["React", "Node.js", "MongoDB", "Stripe"],
+    image: "/projects/ecommerce.webp",
+    github: "https://github.com/Telzeez/portfolio",
+    live: "https://husniyyah-luxe-design.vercel.app/",
+    featured: true,
+    year: "2025",
+    highlights: [
+      "Payment Processing",
+      "Real-time Updates",
+      "Admin Dashboard",
+    ],
+  },
+  {
+    id: 3, // was 3 (already 3, but kept as is)
+    title: "Portfolio Website",
+    description:
+      "Modern portfolio website with animations, dark mode, and responsive design.",
+    category: "frontend",
+    tags: ["React", "Tailwind", "Framer Motion", "GSAP"],
+    image: "/projects/portfolio.webp",
+    github: "https://github.com/Telzeez/portfolio",
+    live: "https://portfolio-abdlazeez-s-projects.vercel.app/",
+    featured: true,
+    year: "2025",
+    highlights: ["Animations", "Dark Mode", "Responsive"],
+  },
+  {
+    id: 4, // was 8
+    title: "Blog Website",
+    description:
+      "A website that allow you to tell us the resources you have used to learn a skill for others to learn from.",
+    category: "fullstack",
+    tags: ["React", "RestAPI", "Mongo DB", "Express"],
+    image: "/projects/blogit.webp",
+    github: "https://github.com/Telzeez/blogit",
+    live: "https://blogitformejoor.vercel.app/",
+    featured: false,
+    year: "2026",
+    highlights: ["Full stack dev", "jwt Auth", "Databases"],
+  },
+  {
+    id: 5, // was 9 (PayGo moved up)
+    title: "PayGo solar metering",
+    description:
+      "is an automated local energy marketplace and smart metering system",
+    category: "fullstack",
+    tags: ["React", "Next", "Postgres", "Express", "Paystack", "Mqqt"],
+    image: "/projects/paygo.webp",
+    github: "https://github.com/Telzeez/PayGo_Frontend",
+    live: "https://pay-go-frontend.vercel.app/",
+    featured: true,
+    year: "2026",
+    highlights: [
+      "Hardware Integration",
+      "Real-time Updates",
+      "Admin Dashboard",
+      "market place",
+      "documentation",
+    ],
+  },
+  {
+    id: 6, // was 2
+    title: "Task Management App",
+    description:
+      "Collaborative project management tool with drag-drop interface and team features.",
+    category: "frontend",
+    tags: ["React", "TypeScript", "Tailwind", "DnD"],
+    image: "/projects/taskapp.jpg",
+    github: "https://github.com/Telzeez/task-app",
+    live: "https://taskapp-demo.com",
+    featured: true,
+    year: "2025",
+    highlights: ["Drag & Drop", "Team Collaboration", "Real-time Sync"],
+  },
+  {
+    id: 7, // was 4
+    title: "Weather Dashboard",
+    description:
+      "Real-time weather application with forecasts, maps, and location-based services.",
+    category: "frontend",
+    tags: ["Next.js", "API", "Chart.js", "Geolocation"],
+    image: "/projects/weather.jpg",
+    github: "https://github.com/Telzeez/weather-app",
+    live: "https://weather-demo.com",
+    featured: false,
+    year: "2025",
+    highlights: ["Real-time Data", "Interactive Maps", "Forecasts"],
+  },
+  {
+    id: 8, // was 5
+    title: "Social Media Dashboard",
+    description:
+      "Analytics dashboard for social media metrics with data visualization and reports.",
+    category: "fullstack",
+    tags: ["React", "Express", "PostgreSQL", "D3.js"],
+    image: "/projects/dashboard.jpg",
+    github: "https://github.com/Telzeez/social-dashboard",
+    live: "https://dashboard-demo.com",
+    featured: true,
+    year: "2026",
+    highlights: ["Data Visualization", "Analytics", "Export Reports"],
+  },
+  {
+    id: 9, // was 6
+    title: "AI Content Generator",
+    description:
+      "AI-powered content creation tool with text generation and image synthesis.",
+    category: "ai",
+    tags: ["Python", "FastAPI", "React", "OpenAI"],
+    image: "/projects/ai-tool.jpg",
+    github: "https://github.com/username/ai-generator",
+    live: "https://ai-demo.com",
+    featured: false,
+    year: "2026",
+    highlights: ["AI Integration", "Content Generation", "Custom Models"],
+  },
+];
 
-  const projects = [
-    {
-      id: 7,
-      title: "Audira Landing Page",
-      description:
-        "A modern, responsive landing page with engaging UI and smooth performance.",
-      category: "frontend",
-      tags: ["React", "Tailwind CSS", "Vite"],
-      image: "/projects/audira.webp",
-      github: "https://github.com/Telzeez/audira_landing_page",
-      live: "https://audira-landing-page.vercel.app/",
-      featured: true,
-      year: "2026",
-      highlights: ["Responsive UI", "Modern Design", "Fast Load Times"],
-    },
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      description:
-        "A full-featured online shopping platform with cart, payment integration, and admin dashboard.",
-      category: "fullstack",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "/projects/ecommerce.webp",
-      github: "https://github.com/Telzeez/portfolio",
-      live: "https://husniyyah-luxe-design.vercel.app/",
-      featured: true,
-      year: "2025",
-      highlights: [
-        "Payment Processing",
-        "Real-time Updates",
-        "Admin Dashboard",
-      ],
-    },
-    {
-      id: 2,
-      title: "Task Management App",
-      description:
-        "Collaborative project management tool with drag-drop interface and team features.",
-      category: "frontend",
-      tags: ["React", "TypeScript", "Tailwind", "DnD"],
-      image: "/projects/taskapp.jpg",
-      github: "https://github.com/Telzeez/task-app",
-      live: "https://taskapp-demo.com",
-      featured: true,
-      year: "2025",
-      highlights: ["Drag & Drop", "Team Collaboration", "Real-time Sync"],
-    },
-    {
-      id: 3,
-      title: "Portfolio Website",
-      description:
-        "Modern portfolio website with animations, dark mode, and responsive design.",
-      category: "frontend",
-      tags: ["React", "Tailwind", "Framer Motion", "GSAP"],
-      image: "/projects/portfolio.webp",
-      github: "https://github.com/Telzeez/portfolio",
-      live: "https://portfolio-abdlazeez-s-projects.vercel.app/",
-      featured: true,
-      year: "2025",
-      highlights: ["Animations", "Dark Mode", "Responsive"],
-    },
-    {
-      id: 4,
-      title: "Weather Dashboard",
-      description:
-        "Real-time weather application with forecasts, maps, and location-based services.",
-      category: "frontend",
-      tags: ["Next.js", "API", "Chart.js", "Geolocation"],
-      image: "/projects/weather.jpg",
-      github: "https://github.com/Telzeez/weather-app",
-      live: "https://weather-demo.com",
-      featured: false,
-      year: "2025",
-      highlights: ["Real-time Data", "Interactive Maps", "Forecasts"],
-    },
-    {
-      id: 5,
-      title: "Social Media Dashboard",
-      description:
-        "Analytics dashboard for social media metrics with data visualization and reports.",
-      category: "fullstack",
-      tags: ["React", "Express", "PostgreSQL", "D3.js"],
-      image: "/projects/dashboard.jpg",
-      github: "https://github.com/Telzeez/social-dashboard",
-      live: "https://dashboard-demo.com",
-      featured: true,
-      year: "2026",
-      highlights: ["Data Visualization", "Analytics", "Export Reports"],
-    },
-    {
-      id: 6,
-      title: "AI Content Generator",
-      description:
-        "AI-powered content creation tool with text generation and image synthesis.",
-      category: "ai",
-      tags: ["Python", "FastAPI", "React", "OpenAI"],
-      image: "/projects/ai-tool.jpg",
-      github: "https://github.com/username/ai-generator",
-      live: "https://ai-demo.com",
-      featured: false,
-      year: "2026",
-      highlights: ["AI Integration", "Content Generation", "Custom Models"],
-    },
-    {
-      id: 8,
-      title: "Blog Website",
-      description:
-        "A website that allow you to tell us the resources you have used to learn a skill for others to learn from.",
-         category: "fullstack",
-      tags: ["React", "RestAPI", "Mongo DB", "Express"],
-      image: "/projects/blogit.webp",
-      github: "https://github.com/Telzeez/blogit",
-      live: "https://blogitformejoor.vercel.app/",
-      featured: false,
-      year: "2026",
-      highlights: ["Full stack dev", "jwt Auth", "Databases"],
-    },
-  ];
-
-  const filters = [
-    { id: "all", label: "All Projects", count: projects.length },
-    {
-      id: "featured",
-      label: "Featured",
-      count: projects.filter((p) => p.featured).length,
-    },
-    {
-      id: "frontend",
-      label: "Frontend",
-      count: projects.filter((p) => p.category === "frontend").length,
-    },
-    {
-      id: "fullstack",
-      label: "Full Stack",
-      count: projects.filter((p) => p.category === "fullstack").length,
-    },
-    {
-      id: "ai",
-      label: "AI/ML",
-      count: projects.filter((p) => p.category === "ai").length,
-    },
-  ];
+const filters = [
+  { id: "all", label: "All Projects", count: projects.length },
+  {
+    id: "featured",
+    label: "Featured",
+    count: projects.filter((p) => p.featured).length,
+  },
+  {
+    id: "frontend",
+    label: "Frontend",
+    count: projects.filter((p) => p.category === "frontend").length,
+  },
+  {
+    id: "fullstack",
+    label: "FullStack",
+    count: projects.filter((p) => p.category === "fullstack").length,
+  },
+  {
+    id: "ai",
+    label: "AI/ML",
+    count: projects.filter((p) => p.category === "ai").length,
+  },
+];
 
   const filteredProjects =
     activeFilter === "all"
@@ -164,6 +184,12 @@ const Projects = () => {
       : activeFilter === "featured"
         ? projects.filter((p) => p.featured)
         : projects.filter((p) => p.category === activeFilter);
+
+  // Initial number of projects to show (mobile friendly)
+  const initialCount = 3;
+  const visibleProjects = showAll
+    ? filteredProjects
+    : filteredProjects.slice(0, initialCount);
 
   return (
     <section id="projects" className="py-20 px-4 md:px-8 bg-background">
@@ -211,35 +237,34 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {visibleProjects.map((project, index) => (
             <div
               key={project.id}
               className={`group glass-panel rounded-2xl overflow-hidden border border-border hover:border-primary/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/10 animate-fade-up`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden bg-linear-to-br from-primary/10 to-primary/5">
-  {project.image ? (
-    <img
-      src={project.image}
-      alt={project.title}
-      /* Added object-center and origin-center to guarantee perfect centering during the zoom scale */
-      className="w-full h-full object-cover object-center origin-center group-hover:scale-110 transition-transform duration-500"
-    />
-  ) : (
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="text-center">
-        <Code className="h-12 w-12 text-primary/30 mx-auto mb-2" />
-        <div className="text-primary/50 font-bold">
-          {project.title}
-        </div>
-        <div className="text-xs text-muted-foreground">
-          Project Preview
-        </div>
-      </div>
-    </div>
-  )}
+              <div className="relative h-40 md:h-48 overflow-hidden bg-linear-to-br from-primary/10 to-primary/5">
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-center origin-center group-hover:scale-110 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <Code className="h-12 w-12 text-primary/30 mx-auto mb-2" />
+                      <div className="text-primary/50 font-bold">
+                        {project.title}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Project Preview
+                      </div>
+                    </div>
+                  </div>
+                )}
                 {project.featured && (
                   <div className="absolute top-4 left-4">
                     <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30">
@@ -261,20 +286,20 @@ const Projects = () => {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
+              <div className="p-4 md:p-6">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                  <h3 className="text-lg md:text-xl font-bold group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
 
-                <p className="text-muted-foreground mb-6">
+                <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 line-clamp-2 md:line-clamp-none">
                   {project.description}
                 </p>
 
-                {/* Highlights */}
-                <div className="mb-6">
+                {/* Highlights - hidden on mobile to reduce height */}
+                <div className="hidden md:block mb-6">
                   <div className="flex items-center gap-2 mb-3">
                     <Zap className="h-4 w-4 text-primary" />
                     <span className="text-sm font-medium">Key Features</span>
@@ -292,7 +317,7 @@ const Projects = () => {
                 </div>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                   {project.tags.map((tag, idx) => (
                     <span
                       key={idx}
@@ -304,7 +329,7 @@ const Projects = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-3">
+                <div className="flex gap-2 md:gap-3">
                   <a
                     href={project.github}
                     target="_blank"
@@ -328,6 +353,19 @@ const Projects = () => {
             </div>
           ))}
         </div>
+
+        {/* See More / Show Less Button */}
+        {filteredProjects.length > initialCount && (
+          <div className="text-center mt-10 animate-fade-up">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="btn-secondary flex items-center gap-2 mx-auto"
+            >
+              <Eye className="h-4 w-4" />
+              {showAll ? "Show Less" : "See More Projects"}
+            </button>
+          </div>
+        )}
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (

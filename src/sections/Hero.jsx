@@ -39,51 +39,61 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center pt-16 pb-20 px-4 md:px-8 transition-all duration-500 opacity-100"
+      className="min-h-screen flex items-center pt-16 pb-20 px-4 md:px-8 transition-all duration-500 opacity-100 mt-4"
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content with staggered animations */}
           <div ref={contentRef} className="space-y-8">
             <div
-              className={`scroll-animate ${contentVisible ? "scroll-animate-visible stagger-1" : ""}`}
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20">
-                <Code size={24} />
-                <Database size={24} />
-                <Layers />
-                <span className="text-sm font-medium">Fullstack Developer</span>
-              </div>
-            </div>
+  className={`scroll-animate ${contentVisible ? "scroll-animate-visible stagger-1" : ""} flex justify-center lg:justify-start w-full`}
+>
+  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20">
+    <Code size={24} />
+    <Database size={24} />
+    <Layers />
+    <span className="text-sm font-medium">Fullstack Developer</span>
+  </div>
+</div>
 
-            <div className="space-y-4">
-              <h1
-                className={`text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight scroll-animate ${
-                  contentVisible ? "scroll-animate-visible stagger-2" : ""
-                }`}
-              >
-                Hi, I'm{" "}
-                <span className="text-primary relative">
-                  Abdlazeez
-                  <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 rounded-full animate-shimmer"></span>
-                </span>
-              </h1>
+   <div className="space-y-4 w-full flex flex-col items-center lg:items-start text-center lg:text-left">
+  
+  {/* Main Heading H1 */}
+  <h1
+    className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight scroll-animate ${
+      contentVisible ? "scroll-animate-visible stagger-2" : ""
+    }`}
+  >
+    Hi, I'm{" "}
+    <span className="text-primary relative inline-block">
+      Abdlazeez
+      <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 rounded-full animate-shimmer"></span>
+    </span>
+  </h1>
 
-              <div
-                className={`scroll-animate ${contentVisible ? "scroll-animate-visible stagger-3" : ""}`}
-              >
-                <h2 className="text-3xl md:text-4xl text-muted-foreground font-semibold">
-                  Crafting{" "}
-                  <span className="text-primary">Digital Experiences</span>
-                </h2>
-                <div className="flex items-center gap-2 mt-2">
-                  <Terminal className="h-5 w-5 text-primary" />
-                  <span className="text-lg text-muted-foreground">
-                    That users love
-                  </span>
-                </div>
-              </div>
-            </div>
+  {/* Subtitle & Terminal Flag Container */}
+  <div
+    className={`w-full flex flex-col items-center lg:items-start scroll-animate ${
+      contentVisible ? "scroll-animate-visible stagger-3" : ""
+    }`}
+  >
+    {/* Subheading H2 */}
+    <h2 className="text-xl sm:text-2xl md:text-4xl text-muted-foreground font-semibold">
+      Crafting{" "}
+      <span className="text-primary">Digital Experiences</span>
+    </h2>
+    
+    {/* Terminal Icon + Text Row */}
+    <div className="flex items-center justify-center lg:justify-start gap-2 mt-2 w-full">
+      <Terminal className="h-5 w-5 text-primary shrink-0" />
+      <span className="text-base sm:text-lg text-muted-foreground">
+        That users love
+      </span>
+    </div>
+  </div>
+  
+</div>
+
 
             <p
               className={`text-lg text-muted-foreground leading-relaxed max-w-2xl scroll-animate ${
@@ -117,28 +127,29 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <div
-              className={`flex flex-wrap gap-4 scroll-animate ${
-                contentVisible ? "scroll-animate-visible stagger-6" : ""
-              }`}
-            >
-              <button
-                onClick={handleContactClick}
-                className="btn-primary flex items-center gap-2 group hover:scale-105 transition-transform duration-300"
-              >
-                <Mail className="h-4 w-4" />
-                Contact Me
-                <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </button>
+  <div
+  className={`flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full scroll-animate ${
+    contentVisible ? "scroll-animate-visible stagger-6" : ""
+  }`}
+>
+  <button
+    onClick={handleContactClick}
+    className="btn-primary flex items-center justify-center gap-2 group hover:scale-105 transition-transform duration-300 w-full sm:w-auto"
+  >
+    <Mail className="h-4 w-4" />
+    Contact Me
+    <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+  </button>
 
-              <button
-                onClick={handleDownloadResume}
-                className="btn-secondary flex items-center gap-2 group hover:scale-105 transition-transform duration-300"
-              >
-                <Download className="h-4 w-4" />
-                Download Resume
-              </button>
-            </div>
+  <button
+    onClick={handleDownloadResume}
+    className="btn-secondary flex items-center justify-center gap-2 group hover:scale-105 transition-transform duration-300 w-full sm:w-auto"
+  >
+    <Download className="h-4 w-4" />
+    Download Resume
+  </button>
+</div>
+
 
             <div
               className={`scroll-animate ${contentVisible ? "scroll-animate-visible stagger-7" : ""}`}

@@ -43,7 +43,7 @@ const Navbar = () => {
 
   if (!mounted) {
     return (
-      <header className="fixed top-0 left-0 right-0 z-50 py-4 bg-background/80 backdrop-blur-xl border-b border-border/30">
+      <header className="fixed top-0 left-0 right-0 z-50 py-4 bg-background/80 backdrop-blur-xl border-b border-border/30 mb-2">
         <div className="mx-auto px-6 max-w-7xl w-full h-16"></div>
       </header>
     );
